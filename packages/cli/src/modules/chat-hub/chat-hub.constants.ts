@@ -1,6 +1,8 @@
 import type { ChatHubLLMProvider, ChatModelMetadataDto } from '@n8n/api-types';
 import type { ExecutionStatus, INodeTypeNameVersion } from 'n8n-workflow';
 
+import type { ChatTriggerResponseMode } from './chat-hub.types';
+
 export const EXECUTION_POLL_INTERVAL = 1000;
 export const EXECUTION_FINISHED_STATUSES: ExecutionStatus[] = [
 	'canceled',
@@ -575,3 +577,8 @@ export function getModelMetadata(
 		available: modelOverride.available ?? true,
 	};
 }
+
+export const SUPPORTED_RESPONSE_MODES: ChatTriggerResponseMode[] = [
+	'streaming',
+	'lastNode',
+] as const;
